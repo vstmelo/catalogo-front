@@ -1,0 +1,30 @@
+@import '../../assets/styles/variables';
+.button{
+    width: fit-content;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+  }
+  
+  .small {
+    padding: 10px 20px;
+  }
+  
+  .medium {
+    padding: 15px 20px;
+  }
+  
+  .primary {
+    background-color: $color-gray;
+    color: $color-white;
+  }
+  
+  .secondary {
+    border: 1px solid  $color-gray;
+    background-color: $color-gray;
+    color:  $color-dark;
+  }
+  
+  .fullWidth {
+    width: 100%;
+  }
