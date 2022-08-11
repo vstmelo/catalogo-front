@@ -1,6 +1,4 @@
 import { getFilmes } from "api/request/getFilmes";
-import { Card } from "components/Card";
-import Input from "components/Input";
 import React from "react";
 import css from "./styles.module.scss";
 export default function Home(): JSX.Element {
