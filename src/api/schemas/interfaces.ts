@@ -6,3 +6,8 @@ export interface IFIlmes {
     title: string,
     description: string,
 }
+export interface ISearchFilter{
+
+    numeroRegistros: number;
+    paginaAtual: number;
+}

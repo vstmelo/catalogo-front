@@ -1,19 +1,23 @@
 import { getFilmes } from "api/request/getFilmes";
 import { getFilmesLocais } from "api/request/getFilmesLocais";
-import { IFIlmes } from "api/schemas/interfaces";
+import { IFIlmes, ISearchFilter } from "api/schemas/interfaces";
 import { Button } from "components/Button";
+import Pagination from "components/Pagination";
 import React from "react";
 import css from "./styles.module.scss";
 export default function Home(): JSX.Element {
-    const [filmes, setFilmes] = React.useState<Array<IFIlmes>>([]);
+  const [filmes, setFilmes] = React.useState<Array<IFIlmes>>([]);
   const [numberPages, setNumberPages] = React.useState<number>(0);
-    
+  const filtro: ISearchFilter = {
+    paginaAtual: 1,
+    numeroRegistros: 10,
+  };
+  const [filter, setFilter] = React.useState<ISearchFilter>(filtro);
   React.useEffect(() => {
     getFilmes().then((res) => {
-        setFilmes(res.data);
-    //   setNumberPages(res.data.pages);
+      setFilmes(res.data);
+      //   setNumberPages(res.data.pages);
     });
-      
   }, [filmes]);
   return (
     <>
@@ -30,6 +34,15 @@ export default function Home(): JSX.Element {
                   <p key={i}>Produtor: {item.producer}</p>
                   <p key={i}>Descrição: {item.description}</p>
                 </div>
+                <Pagination
+                  quantidadePaginas={numberPages}
+                  paginaAtual={filter.paginaAtual}
+                  onClick={(pagina: number) => {
+                    const novosFiltros = { ...filter };
+                    novosFiltros.paginaAtual = pagina;
+                    setFilter(novosFiltros);
+                  }}
+                />
               </section>
             </>
           ))
