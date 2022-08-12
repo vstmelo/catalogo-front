@@ -1,0 +1,31 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 5px;
+}
+
+li {
+  float: left;
+  span {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  & span:hover {
+    background-color: #bdbdbd;
+    cursor: pointer;
+  }
+}
+
+.selectedPage .selectedPage {
+  background-color: rgb(43, 70, 139);
+  & span > span:hover {
+    color: white;
+    cursor: pointer;
+  }
+}

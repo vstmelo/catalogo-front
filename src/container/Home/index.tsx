@@ -1,12 +1,19 @@
 import { getFilmes } from "api/request/getFilmes";
+import { getFilmesLocais } from "api/request/getFilmesLocais";
+import { IFIlmes } from "api/schemas/interfaces";
+import { Button } from "components/Button";
 import React from "react";
 import css from "./styles.module.scss";
 export default function Home(): JSX.Element {
-  const [filmes, setFilmes] = React.useState<Array<any>>([]);
+    const [filmes, setFilmes] = React.useState<Array<IFIlmes>>([]);
+  const [numberPages, setNumberPages] = React.useState<number>(0);
+    
   React.useEffect(() => {
     getFilmes().then((res) => {
-      setFilmes(res.data);
+        setFilmes(res.data);
+    //   setNumberPages(res.data.pages);
     });
+      
   }, [filmes]);
   return (
     <>
