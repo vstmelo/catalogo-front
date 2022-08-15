@@ -1,6 +1,7 @@
 import { api } from "api/axios"
 
-export const getFilmesLocais = async () => {
-    return await api.get('/filmes-locais')
+export const getFilmesLocais = async (pagina: number) => {
+    
+    return await api.get(`/filmes-locais/${pagina}`);
 
 }

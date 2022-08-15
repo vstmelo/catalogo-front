@@ -1,3 +1,4 @@
+import   './style.module.scss'
 interface IProps {
   quantidadePaginas: number;
   paginaAtual: number;
