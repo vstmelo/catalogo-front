@@ -32,7 +32,7 @@ export default function Home(): JSX.Element {
                   <p key={i}>Diretor: {item.director}</p>
                   <p key={i}>Produtor: {item.producer}</p>
                   <p key={i}>Descrição: {item.description}</p>
-                          <img className={css.imagem} src={item.movieBanner} alt="" />
+                <img className={css.imagem} src={item.movieBanner} alt="banner" />
                 </div>
               </section>
             </>
