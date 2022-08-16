@@ -1,23 +1,10 @@
 @import "../../assets/styles/variables";
 .container {
-  width: auto;
-  display: flex;
+  width: 50%;
   background-color: $color-fade-gray;
   border-radius: 15px;
+  margin: auto;
   margin-bottom: 20px;
-  align-self: center;
-  justify-self: center;
-}
-.details {
-  padding: 50px;
-  width: auto;
-  & p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    font-weight: 500;
-    margin-left: 12px;
-    margin-bottom: 12px;
-  }
+  display: flex;
 }
 

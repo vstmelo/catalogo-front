@@ -1,4 +1,4 @@
-import   './style.module.scss'
+import "./style.module.scss";
 interface IProps {
   quantidadePaginas: number;
   paginaAtual: number;
@@ -19,7 +19,6 @@ export default function Pagination(props: IProps): JSX.Element {
           let selectedClass: string = "";
 
           if (pagina === pages[0]) {
-            console.log("primeira página: " + pagina);
           }
 
           switch (pagina) {
@@ -27,13 +26,10 @@ export default function Pagination(props: IProps): JSX.Element {
               selectedClass = "selectedPage";
               break;
             case props.paginaAtual - 1:
-              console.log("pagina anterior: " + pagina);
               break;
             case props.paginaAtual + 1:
-              console.log("pagina sucessora: " + pagina);
               break;
             case props.quantidadePaginas:
-              console.log("última página: " + pagina);
               break;
             default:
               break;
@@ -41,7 +37,6 @@ export default function Pagination(props: IProps): JSX.Element {
 
           return (
             <li
-              className={selectedClass}
               onClick={(e: any) => {
                 props.onClick(pagina);
               }}

@@ -1,6 +1,8 @@
 import { getFilmes } from "api/request/getFilmes";
 import { getFilmesLocais } from "api/request/getFilmesLocais";
-import { IFIlmes, ISearchFilter } from "api/schemas/interfaces";
+import { ISearchFilter } from "api/schemas/interfaces";
+import { Button } from "components/Button";
+import { CardFilmes } from "components/CardFilmes";
 import Pagination from "components/Pagination";
 import React from "react";
 import css from "./styles.module.scss";
@@ -13,9 +15,10 @@ export default function Home(): JSX.Element {
     numeroRegistros: 10,
   });
   React.useEffect(() => {
-      getFilmesLocais(filter.paginaAtual).then((res) => {
-          setFilmes(res.data.filmes[0]);
-          setNumberPages(res.data.filmes[1]);
+    getFilmesLocais(filter.paginaAtual).then((res) => {
+      setFilmes(res.data.filmes[0]);
+      console.log(res.data.filmes);
+      setNumberPages(res.data.filmes[1]);
     });
   }, [filter, filter.paginaAtual]);
   return (
@@ -24,18 +27,24 @@ export default function Home(): JSX.Element {
         {filmes.length === 0 ? (
           <p>Nenhum filme encontrado !</p>
         ) : (
-          filmes.map((item, i: number) => (
-            <>
-              <section className={css.container}>
-                <div className={css.details}>
-                  <p key={i}>Titulo: {item.title}</p>
-                  <p key={i}>Diretor: {item.director}</p>
-                  <p key={i}>Produtor: {item.producer}</p>
-                  <p key={i}>Descrição: {item.description}</p>
-                </div>
-              </section>
-            </>
-          ))
+          <>
+            <div className={css.searchbar}>
+              <Button
+                onClick={() => {
+                  getFilmes();
+                }}
+              >
+                Atualizar
+              </Button>
+            </div>
+            {filmes.map((item, i: number) => (
+              <>
+                <section className={css.container}>
+                  <CardFilmes key={i} data={item} />
+                </section>
+              </>
+            ))}
+          </>
         )}
       </section>
       <Pagination
