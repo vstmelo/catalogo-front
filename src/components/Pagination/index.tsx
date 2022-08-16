@@ -37,7 +37,6 @@ export default function Pagination(props: IProps): JSX.Element {
 
           return (
             <li
-              className={selectedClass}
               onClick={(e: any) => {
                 props.onClick(pagina);
               }}

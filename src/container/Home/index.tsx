@@ -27,22 +27,24 @@ export default function Home(): JSX.Element {
         {filmes.length === 0 ? (
           <p>Nenhum filme encontrado !</p>
         ) : (
-          filmes.map((item, i: number) => (
-            <>
-              <div className={css.searchbar}>
-                <Button
-                  onClick={() => {
-                    getFilmes();
-                  }}
-                >
-                  Atualizar
-                </Button>
-              </div>
-              <section className={css.container}>
-                <CardFilmes key={i} data={item} />
-              </section>
-            </>
-          ))
+          <>
+            <div className={css.searchbar}>
+              <Button
+                onClick={() => {
+                  getFilmes();
+                }}
+              >
+                Atualizar
+              </Button>
+            </div>
+            {filmes.map((item, i: number) => (
+              <>
+                <section className={css.container}>
+                  <CardFilmes key={i} data={item} />
+                </section>
+              </>
+            ))}
+          </>
         )}
       </section>
       <Pagination
