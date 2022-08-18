@@ -14,7 +14,7 @@ Para instalar o Catalogo, siga estas etapas:
 ```
 git clone https://github.com/vstmelo/catalogo-front.git
 
-yarn install
+npm install
 ```
 
 ## ☕ Usando Catalogo
@@ -24,7 +24,7 @@ Para usar Catalogo, siga estas etapas:
 Na pasta do projeto
 
 ```
-yarn start
+npm run start
 ```
 
 
