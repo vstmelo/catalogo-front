@@ -28,5 +28,5 @@
   },
   "include": [
     "src"
-, "../PaymentManager/payment-manager-front/src/components/Button"  ]
+, "../PaymentManager/payment-manager-front/src/components/Button", "../voxcity/src/components/Container"  ]
 }
