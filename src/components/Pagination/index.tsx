@@ -1,4 +1,4 @@
-import "./style.module.scss";
+import css from "./style.module.scss";
 interface IProps {
   quantidadePaginas: number;
   paginaAtual: number;
@@ -36,13 +36,15 @@ export default function Pagination(props: IProps): JSX.Element {
           }
 
           return (
-            <li
-              onClick={(e: any) => {
-                props.onClick(pagina);
-              }}
-            >
-              <span>{pagina}</span>
-            </li>
+            <div className={css.container}>
+              <li
+                onClick={(e: any) => {
+                  props.onClick(pagina);
+                }}
+              >
+                <span>{pagina}</span>
+              </li>
+            </div>
           );
         })}
       </ul>
