@@ -5,6 +5,11 @@
   border-radius: 15px;
   margin: auto;
   margin-bottom: 20px;
-  display: flex;
 }
-
+.box{
+  display: flex;
+  width: 45rem;
+  margin: auto;
+  align-content: space-between;
+  justify-content: space-between;
+}

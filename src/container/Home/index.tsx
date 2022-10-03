@@ -1,10 +1,15 @@
+import { Button } from "components/Button";
 import { CardFilmes } from "components/CardFilmes";
+import Input from "components/Input";
 import Pagination from "components/Pagination";
+import { SearchBar } from "components/SearchBar";
 import { FilmesContext } from "context/filmesContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import css from "./styles.module.scss";
 export default function Home(): JSX.Element {
   const { filmes, numberPages, filter, setFilter } = useContext(FilmesContext);
+  const [search, setSearch] = useState<string>("");
+
   return (
     <>
       <section>
@@ -12,16 +17,41 @@ export default function Home(): JSX.Element {
           <p>Nenhum filme encontrado !</p>
         ) : (
           <>
-            <div className={css.searchbar}>
-              <p> depois faço</p>
-            </div>
-            {filmes.map((item, i: number) => (
-              <>
-                <section className={css.container}>
-                  <CardFilmes key={i} data={item} />
-                </section>
-              </>
-            ))}
+            <section className={css.box}>
+              <div>
+                <Input
+                  placeholder="Search by tittle"
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+              <div>
+                <SearchBar />
+              </div>
+            </section>
+
+            {search.length > 0
+              ? filmes
+                  .filter((data) => {
+                    if (search === "" || search === undefined) {
+                      return data;
+                    } else if (
+                      data.title.toLowerCase().includes(search.toLowerCase())
+                    ) {
+                      return data;
+                    }
+                  })
+                  .map((data, i) => (
+                    <section className={css.container}>
+                      <CardFilmes key={i} data={data} />
+                    </section>
+                  ))
+              : filmes.map((item, i: number) => (
+                  <>
+                    <section className={css.container}>
+                      <CardFilmes key={i} data={item} />
+                    </section>
+                  </>
+                ))}
           </>
         )}
       </section>
@@ -37,4 +67,3 @@ export default function Home(): JSX.Element {
     </>
   );
 }
-

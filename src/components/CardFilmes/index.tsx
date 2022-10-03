@@ -8,7 +8,7 @@ export function CardFilmes({ data }: { data: IFIlmes }): JSX.Element {
         <p>Diretor: {data.director}</p>
         <p>Produtor: {data.producer}</p>
         <p>Descrição: {data.description}</p>
-        <img className={css.imagem} src={data.movieBanner} alt="banner" />
+        <img className={css.imagem} src={data.movie_banner} alt="banner" />
       </section>
     </>
   );
