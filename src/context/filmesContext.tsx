@@ -12,7 +12,7 @@ export const FilmesProvider: React.FC<any> = ({ children }) => {
   const [numberPages, setNumberPages] = React.useState<number>(0);
   const [filter, setFilter] = React.useState<ISearchFilter>({
     paginaAtual: 1,
-    numeroRegistros: 10,
+    numeroRegistros: 5,
   });
   React.useEffect(() => {
     getFilmesLocais(filter.paginaAtual).then((res) => {
@@ -24,6 +24,7 @@ export const FilmesProvider: React.FC<any> = ({ children }) => {
     const { data } = await getFilmes();
     setFilmes(data);
   }
+
   return (
     <FilmesContext.Provider
       value={{
@@ -32,6 +33,7 @@ export const FilmesProvider: React.FC<any> = ({ children }) => {
         filter,
         setFilter,
         atualizar,
+        
       }}
     >
       {children}
