@@ -1,0 +1,7 @@
+@mixin container {
+  width: 50%;
+  background-color: $color-fade-gray;
+  border-radius: 15px;
+  margin: auto;
+  margin-bottom: 20px;
+  }
