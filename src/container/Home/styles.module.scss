@@ -1,10 +1,8 @@
 @import "../../assets/styles/variables";
+@import '../../assets/styles/base';
+
 .container {
-  width: 50%;
-  background-color: $color-fade-gray;
-  border-radius: 15px;
-  margin: auto;
-  margin-bottom: 20px;
+  @include container;
 }
 .box{
   display: flex;
@@ -12,4 +10,15 @@
   margin: auto;
   align-content: space-between;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
+
+.btn {
+  width: 100%;
+  gap: 13rem;
+  border-radius: 15px;
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+}
+

@@ -7,7 +7,7 @@ export function SearchBar(): JSX.Element {
   const { atualizar, numberPages } = useContext(FilmesContext);
   return (
     <>
-      <section className={css.container}>
+      <section className={css.btn}>
         <Button
           onClick={() => {
             atualizar(numberPages);
